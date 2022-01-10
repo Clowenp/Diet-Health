@@ -15,6 +15,8 @@ class Calendar : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCalendarBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 // navigation bar on calendar page
         val navigationBarHome = findViewById<BottomNavigationItemView>(R.id.home_navigation)
         navigationBarHome.setOnClickListener{
