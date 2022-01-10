@@ -17,4 +17,10 @@
         <item>Low-Medium Activity</item>
         <item>Low Activity</item>
     </string-array>
+    <string-array name="ingredient_array">
+        <item>Large Egg</item>
+        <item>Whole Wheat Bread</item>
+        <item>Cooked Broccoli</item>
+        <item>Chicken Breast</item>
+    </string-array>
 </resources>
