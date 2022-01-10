@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/home_navigation"
+        />
+    <item android:title="Calendar"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:id="@+id/calendar_navigation" />
+    <item android:title="Recipes"
+        android:icon="@drawable/ic_baseline_fastfood_24"
+        android:id="@+id/recipes_navigation" />
+
+    <item android:title="My Progress"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:id="@+id/progress_navigation" />
+</menu>

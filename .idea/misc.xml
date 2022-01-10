@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Surfo/AndroidStudioProjects/DietHealth/app/src/main/res/layout/activity_calendar.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Surfo/AndroidStudioProjects/DietHealth/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Surfo/AndroidStudioProjects/DietHealth/app/src/main/res/layout/activity_progress.xml" value="0.10144927536231885" />
         <entry key="..\:/Users/Surfo/AndroidStudioProjects/DietHealth/app/src/main/res/layout/activity_recipes.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Surfo/AndroidStudioProjects/DietHealth/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17135416666666667" />
       </map>
     </option>
   </component>
