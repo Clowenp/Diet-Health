@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.Toast
 import com.example.diethealth.databinding.ActivityMainBinding
 import com.example.diethealth.databinding.ActivityRecipesBinding
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
@@ -56,8 +57,10 @@ class Recipes : AppCompatActivity() {
         //show recyclerview of ingredients, then give person ability to choose amount, then they click button to add it to recipe, then they have another button to save recipe?
         var addedIngredient : Ingredient = loadIngredientList()[0]
         var ingredientList = mutableListOf<Ingredient>()
-        binding.ingredientButton.setOnClickListener{
+        var recipeList = mutableListOf<Recipe>()
 
+
+        binding.addIngredientButton.setOnClickListener{
             var selectedIngredient = ingredientSpinner.selectedItem.toString()
             when(selectedIngredient){
                 "Large Egg" -> addedIngredient = loadIngredientList()[0]
@@ -65,22 +68,35 @@ class Recipes : AppCompatActivity() {
                 "Cooked Broccoli" -> addedIngredient = loadIngredientList()[2]
                 "Chicken Breast" -> addedIngredient = loadIngredientList()[3]
             }
-        }
-
-        binding.addIngredientButton.setOnClickListener{
             addedIngredient.amount = binding.amountEditText.text.toString().toDouble()
             ingredientList.add(addedIngredient)
+            Toast.makeText(applicationContext, "${addedIngredient.amount} grams of ${addedIngredient.name} added", Toast.LENGTH_SHORT).show()
 
+        }
+
+        binding.clearRecipeButton.setOnClickListener{
+            ingredientList = mutableListOf<Ingredient>()
+            binding.amountEditText.text = null
+            Toast.makeText(applicationContext, "Recipe Cleared!", Toast.LENGTH_SHORT).show()
+
+        }
+
+        binding.finishRecipeButton.setOnClickListener{
+            recipeList.add(Recipe(ingredientList, binding.recipeNameEditText.toString()))
+            addedIngredient = loadIngredientList()[0]
+            binding.amountEditText.text = null
+            binding.recipeNameEditText.text = null
+            Toast.makeText(applicationContext, "Recipe: ${binding.recipeNameEditText.toString()} Saved!", Toast.LENGTH_SHORT).show()
         }
 
     }
 
     fun loadIngredientList(): List<Ingredient>{
         return listOf<Ingredient>(
-            Ingredient("Large Egg", "number", 78.0, 260.0, 0.0, 0.5, 25.0, 22.0),
-            Ingredient("Whole Wheat Bread", "slices", 91.0, 1.1, 0.0, 0.6, 58.0, 15.1),
-            Ingredient("Cooked Broccoli", "cups", 34.0, 1501.6, 63.0, 0.4, 38.8, 104.8),
-            Ingredient("Chicken Breast", "cups", 424.6, 71.2, 0.0, 3.0, 36.8, 9.8)
+            Ingredient("Large Egg", 1.6, 5.2, 0.0, 0.01, 0.5, 0.4),
+            Ingredient("Whole Wheat Bread", 2.5, 0.02, 0.0, 0.01, 1.6, 0.4),
+            Ingredient("Cooked Broccoli", 0.35, 15.5, 0.6, 0.0, 0.4, 1.1),
+            Ingredient("Chicken Breast",1.7, 0.3, 0.0, 0.01, 0.2, 0.04)
 
 
         )

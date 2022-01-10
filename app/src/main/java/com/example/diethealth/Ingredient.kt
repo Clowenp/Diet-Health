@@ -1,9 +1,8 @@
 package com.example.diethealth
 ////vitamin a, vitamin c, zinc, calcium, pholate
-class Ingredient(name: String, unit: String, calorieRate: Double, vitaminARate: Double, vitaminCRate: Double, zincRate: Double, calciumRate: Double, pholateRate: Double, amount: Double = 1.0) {
+class Ingredient(name: String, calorieRate: Double, vitaminARate: Double, vitaminCRate: Double, zincRate: Double, calciumRate: Double, pholateRate: Double, amount: Double = 1.0) {
 
     val name: String
-    val unit: String
     val calorieRate: Double
     val vitaminARate: Double
     val vitaminCRate: Double
@@ -14,7 +13,6 @@ class Ingredient(name: String, unit: String, calorieRate: Double, vitaminARate: 
 
     init{
         this.name = name
-        this.unit = unit
         this.calorieRate = calorieRate
         this.vitaminARate = vitaminARate
         this.vitaminCRate = vitaminCRate
