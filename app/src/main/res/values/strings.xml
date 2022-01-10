@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Diet&amp;Health</string>
+    <string name="home">home</string>
+    <string name="calendar">calendar</string>
+    <string name="recipes">recipes</string>
+    <string name="my_progress">my_progress</string>
+    <string name="monday_january_10th">monday_january_10th</string>
+    <string name="welcome_back_john">Welcome Back, John</string>
+</resources>
