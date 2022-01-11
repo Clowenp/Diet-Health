@@ -73,6 +73,14 @@ class Recipes : AppCompatActivity() {
                 "Whole Wheat Bread" -> addedIngredient = loadIngredientList()[1]
                 "Cooked Broccoli" -> addedIngredient = loadIngredientList()[2]
                 "Chicken Breast" -> addedIngredient = loadIngredientList()[3]
+                "Apple" -> addedIngredient = loadIngredientList()[4]
+                "Fasting" -> addedIngredient = loadIngredientList()[5]
+                "Oatmeal" -> addedIngredient = loadIngredientList()[6]
+                "Raw Spinach" -> addedIngredient = loadIngredientList()[7]
+                "Sweet Potato" -> addedIngredient = loadIngredientList()[8]
+                "White Rice" -> addedIngredient = loadIngredientList()[9]
+                "Brown Rice" -> addedIngredient = loadIngredientList()[10]
+                "Lentils" -> addedIngredient = loadIngredientList()[11]
             }
             addedIngredient.amount = binding.amountEditText.text.toString().toDouble()
             ingredientList.add(addedIngredient)
@@ -103,7 +111,16 @@ class Recipes : AppCompatActivity() {
             Ingredient("Large Egg", 1.6, 5.2, 0.0, 0.01, 0.5, 0.4),
             Ingredient("Whole Wheat Bread", 2.5, 0.02, 0.0, 0.01, 1.6, 0.4),
             Ingredient("Cooked Broccoli", 0.35, 15.5, 0.6, 0.0, 0.4, 1.1),
-            Ingredient("Chicken Breast",1.7, 0.3, 0.0, 0.01, 0.2, 0.04)
+            Ingredient("Chicken Breast",1.7, 0.3, 0.0, 0.01, 0.2, 0.04),
+            Ingredient("Apple",0.52, 0.54, 0.05, 0.00, 0.06, 0.03),
+            Ingredient("Fasting", 0.0, 0.0, 0.0, 0.0, 0.0, 0.0),
+            Ingredient("Oatmeal",3.79, 0.0, 0.0, 0.04, 0.52, 0.32),
+            Ingredient("Raw Spinach",0.23, 93.77, 0.28, 0.01, 0.99, 1.94),
+            Ingredient("Sweet Potato",0.9, 192.18, 0.20, 0.0, 0.38, 0.01),
+            Ingredient("White Rice",1.3, 0.0, 0.0, 0.01, 0.1, 0.43),
+            Ingredient("Brown Rice",1.23, 0.0, 0.0, 0.01, 0.0, 0.01),
+            Ingredient("Lentils",1.16, 0.08, 0.01, 0.01, 0.19, 1.81)
+
 
 
         )

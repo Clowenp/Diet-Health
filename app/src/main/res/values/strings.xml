@@ -22,5 +22,13 @@
         <item>Whole Wheat Bread</item>
         <item>Cooked Broccoli</item>
         <item>Chicken Breast</item>
+        <item>Apple</item>
+        <item>Fasting</item>
+        <item>Oatmeal</item>
+        <item>Raw Spinach</item>
+        <item>Sweet Potato</item>
+        <item>White Rice</item>
+        <item>Brown Rice</item>
+        <item>Lentils</item>
     </string-array>
 </resources>
