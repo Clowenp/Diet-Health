@@ -9,6 +9,9 @@ import android.widget.Toast
 import com.example.diethealth.databinding.ActivityMainBinding
 import com.example.diethealth.databinding.ActivityRecipesBinding
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class Recipes : AppCompatActivity() {
     private lateinit var binding: ActivityRecipesBinding
@@ -46,6 +49,9 @@ class Recipes : AppCompatActivity() {
         }
 
 
+        var database = FirebaseDatabase.getInstance()
+        var dataReference = database.getReference()
+
         //spinner
         var ingredientSpinner = binding.ingredientSpinner
         val ingredientArray = resources.getStringArray(R.array.ingredient_array)
@@ -82,7 +88,8 @@ class Recipes : AppCompatActivity() {
         }
 
         binding.finishRecipeButton.setOnClickListener{
-            recipeList.add(Recipe(ingredientList, binding.recipeNameEditText.toString()))
+            var finishedRecipe = Recipe(ingredientList, binding.recipeNameEditText.text.toString())
+            dataReference.child("recipes").push().setValue(finishedRecipe)
             addedIngredient = loadIngredientList()[0]
             binding.amountEditText.text = null
             binding.recipeNameEditText.text = null
