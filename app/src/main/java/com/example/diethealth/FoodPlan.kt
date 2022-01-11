@@ -3,6 +3,7 @@ package com.example.diethealth
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.diethealth.databinding.ActivityCalendarBinding
 import com.example.diethealth.databinding.ActivityFoodPlanBinding
 
@@ -40,7 +41,19 @@ class FoodPlan : AppCompatActivity() {
         binding.foodPlanDate.setText("$month $day, $year")
 
         binding.addBreakfast.setOnClickListener {
-
+            Toast.makeText(applicationContext,"Breakfast added",Toast.LENGTH_SHORT).show()
+        }
+        binding.addSnack.setOnClickListener {
+            Toast.makeText(applicationContext,"Snack added",Toast.LENGTH_SHORT).show()
+        }
+        binding.addLunch.setOnClickListener {
+            Toast.makeText(applicationContext,"Lunch added",Toast.LENGTH_SHORT).show()
+        }
+        binding.addSnackTwo.setOnClickListener {
+            Toast.makeText(applicationContext,"Snack added",Toast.LENGTH_SHORT).show()
+        }
+        binding.addDinner.setOnClickListener {
+            Toast.makeText(applicationContext,"Dinner added",Toast.LENGTH_SHORT).show()
         }
 
     }
