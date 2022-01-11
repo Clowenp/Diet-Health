@@ -3,18 +3,23 @@ package com.example.diethealth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Toast
 import com.example.diethealth.databinding.ActivityMainBinding
 import com.example.diethealth.databinding.ActivityRecipesBinding
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class Recipes : AppCompatActivity() {
     private lateinit var binding: ActivityRecipesBinding
+    var recipeFile = "recipe.txt"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,24 +72,30 @@ class Recipes : AppCompatActivity() {
 
 
         binding.addIngredientButton.setOnClickListener{
-            var selectedIngredient = ingredientSpinner.selectedItem.toString()
-            when(selectedIngredient){
-                "Large Egg" -> addedIngredient = loadIngredientList()[0]
-                "Whole Wheat Bread" -> addedIngredient = loadIngredientList()[1]
-                "Cooked Broccoli" -> addedIngredient = loadIngredientList()[2]
-                "Chicken Breast" -> addedIngredient = loadIngredientList()[3]
-                "Apple" -> addedIngredient = loadIngredientList()[4]
-                "Fasting" -> addedIngredient = loadIngredientList()[5]
-                "Oatmeal" -> addedIngredient = loadIngredientList()[6]
-                "Raw Spinach" -> addedIngredient = loadIngredientList()[7]
-                "Sweet Potato" -> addedIngredient = loadIngredientList()[8]
-                "White Rice" -> addedIngredient = loadIngredientList()[9]
-                "Brown Rice" -> addedIngredient = loadIngredientList()[10]
-                "Lentils" -> addedIngredient = loadIngredientList()[11]
+            if(binding.amountEditText.text.isNullOrBlank() == false){
+                var selectedIngredient = ingredientSpinner.selectedItem.toString()
+                when(selectedIngredient){
+                    "Large Egg" -> addedIngredient = loadIngredientList()[0]
+                    "Whole Wheat Bread" -> addedIngredient = loadIngredientList()[1]
+                    "Cooked Broccoli" -> addedIngredient = loadIngredientList()[2]
+                    "Chicken Breast" -> addedIngredient = loadIngredientList()[3]
+                    "Apple" -> addedIngredient = loadIngredientList()[4]
+                    "Fasting" -> addedIngredient = loadIngredientList()[5]
+                    "Oatmeal" -> addedIngredient = loadIngredientList()[6]
+                    "Raw Spinach" -> addedIngredient = loadIngredientList()[7]
+                    "Sweet Potato" -> addedIngredient = loadIngredientList()[8]
+                    "White Rice" -> addedIngredient = loadIngredientList()[9]
+                    "Brown Rice" -> addedIngredient = loadIngredientList()[10]
+                    "Lentils" -> addedIngredient = loadIngredientList()[11]
+                }
+                addedIngredient.amount = binding.amountEditText.text.toString().toDouble()
+                ingredientList.add(addedIngredient)
+                Toast.makeText(applicationContext, "${addedIngredient.amount} grams of ${addedIngredient.name} added", Toast.LENGTH_SHORT).show()
+
+            } else {
+                Toast.makeText(this, "Please fill out an amount", Toast.LENGTH_SHORT).show()
             }
-            addedIngredient.amount = binding.amountEditText.text.toString().toDouble()
-            ingredientList.add(addedIngredient)
-            Toast.makeText(applicationContext, "${addedIngredient.amount} grams of ${addedIngredient.name} added", Toast.LENGTH_SHORT).show()
+
 
         }
 
@@ -96,13 +107,20 @@ class Recipes : AppCompatActivity() {
         }
 
         binding.finishRecipeButton.setOnClickListener{
-            var finishedRecipe = Recipe(ingredientList, binding.recipeNameEditText.text.toString())
-            dataReference.child(finishedRecipe.name).push().setValue(finishedRecipe)
-            addedIngredient = loadIngredientList()[0]
-            binding.amountEditText.text = null
-            binding.recipeNameEditText.text = null
-            Toast.makeText(applicationContext, "Recipe: ${binding.recipeNameEditText.toString()} Saved!", Toast.LENGTH_SHORT).show()
+            if(binding.recipeNameEditText.text.isNullOrBlank() == false){
+                var finishedRecipe = Recipe(ingredientList, binding.recipeNameEditText.text.toString())
+                dataReference.push().setValue(finishedRecipe)
+                addedIngredient = loadIngredientList()[0]
+                binding.amountEditText.text = null
+                binding.recipeNameEditText.text = null
+                Toast.makeText(applicationContext, "Recipe: ${binding.recipeNameEditText.toString()} Saved!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Please enter a recipe name", Toast.LENGTH_SHORT).show()
+            }
+
         }
+
+
 
     }
 

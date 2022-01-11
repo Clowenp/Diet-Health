@@ -77,5 +77,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_ingredient_button" />
 
+    <Button
+        android:id="@+id/get_data_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="get data"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/finish_recipe_button" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
