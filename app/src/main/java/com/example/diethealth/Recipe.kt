@@ -9,5 +9,14 @@ class Recipe(ingredients: List<Ingredient>, name: String = "Recipe") {
         this.name = name
     }
 
+    fun getInfo(): String{
+        var nameList = mutableListOf<String>()
+        for(i in ingredients.indices){
+            nameList.add(ingredients[i].name)
+
+        }
+        return this.name + nameList
+    }
+
 
 }
