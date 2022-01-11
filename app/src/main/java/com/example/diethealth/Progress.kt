@@ -48,7 +48,10 @@ class Progress : AppCompatActivity() {
 
         binding.readButton.setOnClickListener {
             database = FirebaseDatabase.getInstance().getReference("recipes")
-            binding.readView.text = database.ref.toString()
+            //binding.readView.text = database.ref.toString()
+            database.child("recipes").child("hhh").child("-Mt8o1CqrwFGoV9eSVHv").child("name:").get().addOnSuccessListener {
+                binding.readView.text = it.toString()
+            }
         }
 
     }
