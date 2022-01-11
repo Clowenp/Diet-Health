@@ -80,74 +80,78 @@
 
     <EditText
         android:id="@+id/age_edittext"
-        android:layout_width="160dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:hint="Enter Your Age in Years"
+        android:hint="Age in Years"
         android:inputType="numberDecimal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activity_spinner" />
 
     <EditText
         android:id="@+id/name_edittext"
-        android:layout_width="160dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:hint="Enter Your Name"
+        android:hint="Name"
         android:inputType="text"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/age_edittext" />
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="25dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_spinner" />
 
     <EditText
         android:id="@+id/weight_edittext"
-        android:layout_width="160dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:hint="Enter Your Weight in Kg"
+        android:hint="Weight in kg"
         android:inputType="numberDecimal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="25dp"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toBottomOf="@id/name_edittext" />
 
     <EditText
         android:id="@+id/height_edittext"
-        android:layout_width="160dp"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:hint="Enter Your Height in cm"
+        android:hint="Height in cm"
         android:inputType="numberDecimal"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weight_edittext" />
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="25dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/name_edittext" />
 
     <TextView
         android:id="@+id/activity_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What was your activity level for today?"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gender_spinner" />
+        android:text="Today's Activity Level"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date" />
 
     <Spinner
         android:id="@+id/activity_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/activity_textview"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/activity_textview"
+        app:layout_constraintStart_toStartOf="@id/activity_textview"/>
 
     <TextView
         android:id="@+id/gender_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What is your gender?"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:text="Gender:"
+        android:layout_marginStart="85dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/date" />
 
@@ -155,10 +159,11 @@
         android:id="@+id/gender_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/gender_textview"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="@id/gender_textview"
+        app:layout_constraintEnd_toEndOf="@id/gender_textview"/>
 
     <TextView
         android:id="@+id/test_textview"
@@ -172,7 +177,7 @@
 
     <Button
         android:id="@+id/submit_button"
-        android:layout_width="0dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:layout_marginTop="16dp"

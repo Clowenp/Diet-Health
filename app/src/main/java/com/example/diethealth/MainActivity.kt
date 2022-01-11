@@ -3,10 +3,12 @@ package com.example.diethealth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Button
 import com.example.diethealth.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,23 +58,39 @@ class MainActivity : AppCompatActivity() {
         activitySpinner.adapter = activityAdapter
 
         binding.submitButton.setOnClickListener{
-            user.age = binding.ageEdittext.text.toString().toDouble()
-            user.name = binding.nameEdittext.text.toString()
-            user.weight = binding.weightEdittext.text.toString().toDouble()
-            user.height = binding.heightEdittext.text.toString().toDouble()
-            user.gender = genderSpinner.selectedItem.toString()
-            var aaa = activitySpinner.selectedItem.toString()
-            if (aaa == "Low Activity") {
-                user.activityLevel = 1.2
-            } else if (aaa == "Low-Medium Activity") {
-                user.activityLevel = 1.375
-            } else if (aaa == "Medium Activity") {
-                user.activityLevel = 1.55
-            } else if (aaa == "High-Medium Activity") {
-                user.activityLevel = 1.725
-            } else { user.activityLevel = 1.9 }
-            binding.testTextview.text = user.gender.toString()
+            if (binding.ageEdittext.text.isNullOrBlank() == false && binding.nameEdittext.text.isNullOrBlank() == false && binding.weightEdittext.text.isNullOrBlank() == false && binding.heightEdittext.text.isNullOrBlank() == false) {
+                user.age = binding.ageEdittext.text.toString().toDouble()
+                user.name = binding.nameEdittext.text.toString()
+                user.weight = binding.weightEdittext.text.toString().toDouble()
+                user.height = binding.heightEdittext.text.toString().toDouble()
+                user.gender = genderSpinner.selectedItem.toString()
+                var aaa = activitySpinner.selectedItem.toString()
+                if (aaa == "Low Activity") {
+                    user.activityLevel = 1.2
+                } else if (aaa == "Low-Medium Activity") {
+                    user.activityLevel = 1.375
+                } else if (aaa == "Medium Activity") {
+                    user.activityLevel = 1.55
+                } else if (aaa == "High-Medium Activity") {
+                    user.activityLevel = 1.725
+                } else {
+                    user.activityLevel = 1.9
+                }
+                binding.testTextview.text = user.gender.toString()
+            } else {
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            }
         }
 
+
+
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
     }
 }
