@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DietHealth">
         <activity
+            android:name=".FoodPlan"
+            android:exported="false"
+            android:parentActivityName=".Calendar"
+            />
+        <activity
             android:name=".Progress"
             android:exported="false" />
         <activity

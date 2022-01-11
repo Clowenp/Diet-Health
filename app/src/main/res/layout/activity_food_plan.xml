@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FoodPlan">
+
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-5dp"
+        android:layout_marginBottom="10dp"
+        android:background="#8BC34A"
+        app:layout_constraintBottom_toTopOf="@+id/addBreakfast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/foodPlanDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="#00000000"
+        android:foregroundTint="#000000"
+        android:textColor="#1B5E20"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Date"
+        tools:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:background="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addDinner">
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/addBreakfast"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/add_button_custom"
+        android:backgroundTint="@android:color/holo_green_dark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodPlanDate"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/addSnack"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/add_button_custom"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toEndOf="@+id/addBreakfast"
+        app:layout_constraintTop_toBottomOf="@+id/addBreakfast"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/addLunch"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/add_button_custom"
+        android:backgroundTint="@android:color/holo_green_dark"
+        app:layout_constraintEnd_toEndOf="@+id/addBreakfast"
+        app:layout_constraintTop_toBottomOf="@+id/addSnack"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/addSnackTwo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/add_button_custom"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        app:layout_constraintEnd_toEndOf="@+id/addBreakfast"
+        app:layout_constraintTop_toBottomOf="@+id/addLunch"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/addDinner"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/add_button_custom"
+        android:backgroundTint="@android:color/holo_green_dark"
+        app:layout_constraintEnd_toEndOf="@+id/addBreakfast"
+        app:layout_constraintTop_toBottomOf="@+id/addSnackTwo"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="110dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:drawableTop="@drawable/ic_baseline_calculate_24"
+        android:text="Calculate"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout" />
+
+    <TextView
+        android:id="@+id/breakfastText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Breakfast"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/addBreakfast"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
+
+    <TextView
+        android:id="@+id/snackTextOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Snack"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/addSnack"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/breakfastText" />
+
+    <TextView
+        android:id="@+id/lunchText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Lunch"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/addLunch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snackTextOne" />
+
+    <TextView
+        android:id="@+id/snackTestTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Snack"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/addSnackTwo"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lunchText" />
+
+    <TextView
+        android:id="@+id/dinnerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Dinner"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/addDinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/snackTestTwo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
