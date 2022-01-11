@@ -50,7 +50,7 @@ class Recipes : AppCompatActivity() {
 
 
         var database = FirebaseDatabase.getInstance()
-        var dataReference = database.getReference()
+        var dataReference = database.getReference("recipes")
 
         //spinner
         var ingredientSpinner = binding.ingredientSpinner
@@ -89,7 +89,7 @@ class Recipes : AppCompatActivity() {
 
         binding.finishRecipeButton.setOnClickListener{
             var finishedRecipe = Recipe(ingredientList, binding.recipeNameEditText.text.toString())
-            dataReference.child("recipes").push().setValue(finishedRecipe)
+            dataReference.child(finishedRecipe.name).push().setValue(finishedRecipe)
             addedIngredient = loadIngredientList()[0]
             binding.amountEditText.text = null
             binding.recipeNameEditText.text = null

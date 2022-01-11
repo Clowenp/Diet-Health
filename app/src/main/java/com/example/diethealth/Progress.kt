@@ -7,9 +7,13 @@ import android.widget.Button
 import com.example.diethealth.databinding.ActivityMainBinding
 import com.example.diethealth.databinding.ActivityProgressBinding
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.firebase.database.DatabaseReference
 
 class Progress : AppCompatActivity() {
     private lateinit var binding: ActivityProgressBinding
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var recipeRecyclerView: DatabaseReference
+    private lateinit var recipeList: ArrayList<Recipe>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

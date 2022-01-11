@@ -32,7 +32,7 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="250dp"
-        android:hint="Enter Amount (grams)"
+        android:hint="Enter Amount (g)"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
