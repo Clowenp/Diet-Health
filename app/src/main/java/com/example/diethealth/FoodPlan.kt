@@ -27,19 +27,24 @@ class FoodPlan : AppCompatActivity() {
 
         var spinnerBreakfast = binding.spinnerBreakfast
         spinnerBreakfast.adapter = recipeAdapter
+        //making it default empty, since loadRecipes()[6] is fasting, thus to intiilize this variable and keep it empty i set the initial value to the empty fast recipe
+        var addedBreakfastRecipe = loadRecipes()[6]
 
         var spinnerSnackOne = binding.spinnerSnackOne
         spinnerSnackOne.adapter = recipeAdapter
+        var addedSnackOneRecipe = loadRecipes()[6]
 
         var spinnerLunch = binding.spinnerLunch
         spinnerLunch.adapter = recipeAdapter
+        var addedLunchRecipe = loadRecipes()[6]
 
         var spinnerSnackTwo = binding.spinnerSnackTwo
         spinnerSnackTwo.adapter = recipeAdapter
+        var addedSnackTwoRecipe = loadRecipes()[6]
 
         var spinnerDinner = binding.spinnerDinner
         spinnerDinner.adapter = recipeAdapter
-
+        var addedDinnerRecipe = loadRecipes()[6]
 
 
 
@@ -65,7 +70,7 @@ class FoodPlan : AppCompatActivity() {
         binding.addBreakfast.setOnClickListener {
 
             var selectedBreakfastRecipe = spinnerBreakfast.selectedItem.toString()
-            var addedBreakfastRecipe = when(selectedBreakfastRecipe){
+            addedBreakfastRecipe = when(selectedBreakfastRecipe){
                 "Chicken Fried Rice" -> loadRecipes()[0]
                 "Egg Fried Rice" -> loadRecipes()[1]
                 "Broccoli and Sweet Potato" -> loadRecipes()[2]
@@ -80,7 +85,7 @@ class FoodPlan : AppCompatActivity() {
         binding.addSnack.setOnClickListener {
 
             var selectedSnackOneRecipe = spinnerSnackOne.selectedItem.toString()
-            var addedSnackOneRecipe = when(selectedSnackOneRecipe){
+            addedSnackOneRecipe = when(selectedSnackOneRecipe){
                 "Chicken Fried Rice" -> loadRecipes()[0]
                 "Egg Fried Rice" -> loadRecipes()[1]
                 "Broccoli and Sweet Potato" -> loadRecipes()[2]
@@ -95,7 +100,7 @@ class FoodPlan : AppCompatActivity() {
         binding.addLunch.setOnClickListener {
 
             var selectedLunchRecipe = spinnerLunch.selectedItem.toString()
-            var addedLunchRecipe = when(selectedLunchRecipe){
+            addedLunchRecipe = when(selectedLunchRecipe){
                 "Chicken Fried Rice" -> loadRecipes()[0]
                 "Egg Fried Rice" -> loadRecipes()[1]
                 "Broccoli and Sweet Potato" -> loadRecipes()[2]
@@ -108,12 +113,62 @@ class FoodPlan : AppCompatActivity() {
             Toast.makeText(applicationContext,"Lunch added",Toast.LENGTH_SHORT).show()
         }
         binding.addSnackTwo.setOnClickListener {
+
+            var selectedSnackTwoRecipe = spinnerSnackTwo.selectedItem.toString()
+            addedSnackTwoRecipe = when(selectedSnackTwoRecipe){
+                "Chicken Fried Rice" -> loadRecipes()[0]
+                "Egg Fried Rice" -> loadRecipes()[1]
+                "Broccoli and Sweet Potato" -> loadRecipes()[2]
+                "Apple Oatmeal" -> loadRecipes()[3]
+                "Lentil Salad" -> loadRecipes()[4]
+                "Chicken Sandwich" -> loadRecipes()[5]
+                else -> loadRecipes()[6]
+            }
+
             Toast.makeText(applicationContext,"Snack added",Toast.LENGTH_SHORT).show()
         }
         binding.addDinner.setOnClickListener {
+
+            var selectedDinnerRecipe = spinnerDinner.selectedItem.toString()
+            addedDinnerRecipe = when(selectedDinnerRecipe){
+                "Chicken Fried Rice" -> loadRecipes()[0]
+                "Egg Fried Rice" -> loadRecipes()[1]
+                "Broccoli and Sweet Potato" -> loadRecipes()[2]
+                "Apple Oatmeal" -> loadRecipes()[3]
+                "Lentil Salad" -> loadRecipes()[4]
+                "Chicken Sandwich" -> loadRecipes()[5]
+                else -> loadRecipes()[6]
+            }
+
             Toast.makeText(applicationContext,"Dinner added",Toast.LENGTH_SHORT).show()
         }
 
+        binding.calculateButton.setOnClickListener{
+            var dailyCalories: Double = addedBreakfastRecipe.getCalories() + addedSnackOneRecipe.getCalories() + addedLunchRecipe.getCalories() + addedSnackTwoRecipe.getCalories() + addedDinnerRecipe.getCalories()
+            var dailyVitaminA: Double = addedBreakfastRecipe.getVitaminA() + addedSnackOneRecipe.getVitaminA() + addedLunchRecipe.getVitaminA() + addedSnackTwoRecipe.getVitaminA() + addedDinnerRecipe.getVitaminA()
+            var dailyVitaminC: Double = addedBreakfastRecipe.getVitaminC() + addedSnackOneRecipe.getVitaminC() + addedLunchRecipe.getVitaminC() + addedSnackTwoRecipe.getVitaminC() + addedDinnerRecipe.getVitaminC()
+            var dailyZinc: Double = addedBreakfastRecipe.getZinc() + addedSnackOneRecipe.getZinc() + addedLunchRecipe.getZinc() + addedSnackTwoRecipe.getZinc() + addedDinnerRecipe.getZinc()
+            var dailyCalcium: Double = addedBreakfastRecipe.getCalcium() + addedSnackOneRecipe.getCalcium() + addedLunchRecipe.getCalcium() + addedSnackTwoRecipe.getCalcium() + addedDinnerRecipe.getCalcium()
+            var dailyFolate: Double = addedBreakfastRecipe.getFolate() + addedSnackOneRecipe.getFolate() + addedLunchRecipe.getFolate() + addedSnackTwoRecipe.getFolate() + addedDinnerRecipe.getFolate()
+
+            var dailyCaloriesString = dailyCalories.toString() + " kcal"
+            binding.dailyCalories.text = dailyCaloriesString
+
+            var dailyVitaminAString = dailyVitaminA.toString() + " IU"
+            binding.dailyVitaminA.text = dailyVitaminAString
+
+            var dailyVitaminCString = dailyVitaminC.toString() + " mg"
+            binding.dailyVitaminC.text = dailyVitaminCString
+
+            var dailyZincString = dailyZinc.toString() + " mg"
+            binding.dailyZinc.text = dailyZincString
+
+            var dailyCalciumString = dailyCalcium.toString() + " mg"
+            binding.dailyCalcium.text = dailyCalciumString
+
+            var dailyFolateString = dailyFolate.toString() + " mcg"
+            binding.dailyFolate.text = dailyFolateString
+        }
     }
 }
 
