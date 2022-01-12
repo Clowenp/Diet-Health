@@ -4,6 +4,8 @@ package com.example.diethealth
  * This class create recipe objects, wich holds the ingredients and name of the recipe, and you can calculate the nutritional info of the recipes
  *
  * @author Joshua Hill
+ * @author Jaidon Hill
+ * @author Owen Pan
  *
  * @property ingredients - This is the list of the ingredients in the recipe
  * @property name - this is the name of the recipe

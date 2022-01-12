@@ -4,6 +4,8 @@ package com.example.diethealth
  * This class create ingredient objects, which shows the rate of calories, vitamina, vitaminC, zinc, calcium and folate per gram of the ingredient. The parameters are used to ccalculate the amount of each nutrient in the ingredient.
  *
  * @author Joshua Hill
+ * @author Jaidon Hill
+ * @author Owen Pan
  *
  * @property name - this si the name of the ingredient
  * @property calorieRate - this is the amount of calories per gram of the ingredient

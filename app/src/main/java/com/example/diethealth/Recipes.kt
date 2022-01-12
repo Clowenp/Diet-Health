@@ -18,6 +18,8 @@ import com.google.firebase.ktx.Firebase
  * This class runs the recipes activity on creation
  *
  * @author Joshua Hill
+ * @author Owen Pan
+ * @author Jaidon Hill
  *
  *
  * Updated 01-12-2022

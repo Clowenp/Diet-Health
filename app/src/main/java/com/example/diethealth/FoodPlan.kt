@@ -12,6 +12,7 @@ import com.example.diethealth.databinding.ActivityFoodPlanBinding
  *
  * @author Owen Pan
  * @author Joshua Hill
+ * @author Jaidon Hill
  *
  *
  * Updated 01-12-2022
