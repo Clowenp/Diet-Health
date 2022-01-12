@@ -14,9 +14,22 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
+/**
+ * This class runs the recipes activity on creation
+ *
+ * @author Joshua Hill
+ *
+ *
+ *
+ */
 class Recipes : AppCompatActivity() {
     private lateinit var binding: ActivityRecipesBinding
 
+    /**
+     * Runs on activity creation
+     *
+     * @param savedInstanceState - if there was a previous version of the activity saved, it can run it form that point
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecipesBinding.inflate(layoutInflater)
@@ -51,15 +64,18 @@ class Recipes : AppCompatActivity() {
 
         //databse variables
         var database = FirebaseDatabase.getInstance()
+        //sending data to recipe branch in databse
         var dataReference = database.getReference("recipes")
 
-        //spinner
+        //spinner variables
         var ingredientSpinner = binding.ingredientSpinner
+        //getting list of ingredient names from strings.xml
         val ingredientArray = resources.getStringArray(R.array.ingredient_array)
         var ingredientAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ingredientArray)
         ingredientSpinner.adapter = ingredientAdapter
 
-        //
+        //misc variables
+        //setting default value for addedIngredient
         var addedIngredient : Ingredient = loadIngredientList()[0]
         var ingredientList = mutableListOf<Ingredient>()
         var recipeList = mutableListOf<Recipe>()
@@ -68,64 +84,93 @@ class Recipes : AppCompatActivity() {
         val ingredientImage : ImageView = binding.ingredientImageView
 
 
-
+        //runs when addIngredientButton is pressed
         binding.addIngredientButton.setOnClickListener{
-            var selectedIngredient = ingredientSpinner.selectedItem.toString()
-            when(selectedIngredient){
-                "Large Egg" -> addedIngredient = loadIngredientList()[0]
-                "Whole Wheat Bread" -> addedIngredient = loadIngredientList()[1]
-                "Cooked Broccoli" -> addedIngredient = loadIngredientList()[2]
-                "Chicken Breast" -> addedIngredient = loadIngredientList()[3]
-                "Apple" -> addedIngredient = loadIngredientList()[4]
-                "Fasting" -> addedIngredient = loadIngredientList()[5]
-                "Oatmeal" -> addedIngredient = loadIngredientList()[6]
-                "Raw Spinach" -> addedIngredient = loadIngredientList()[7]
-                "Sweet Potato" -> addedIngredient = loadIngredientList()[8]
-                "White Rice" -> addedIngredient = loadIngredientList()[9]
-                "Brown Rice" -> addedIngredient = loadIngredientList()[10]
-                "Lentils" -> addedIngredient = loadIngredientList()[11]
-            }
-            var ingredientDrawable = when(selectedIngredient){
-                "Large Egg" -> R.drawable.egg
-                "Whole Wheat Bread" -> R.drawable.bread
-                "Cooked Broccoli" -> R.drawable.broccoli
-                "Chicken Breast" -> R.drawable.chicken
-                "Apple" -> R.drawable.apple
-                "Fasting" -> R.drawable.fasting
-                "Oatmeal" -> R.drawable.oatmeal
-                "Raw Spinach" -> R.drawable.spinach
-                "Sweet Potato" -> R.drawable.sweet_potato
-                "White Rice" -> R.drawable.white_rice
-                "Brown Rice" -> R.drawable.brown_rice
-                else -> R.drawable.lentils
-            }
-            ingredientImage.setImageResource(ingredientDrawable)
+            //only running if user fills out amountEditText field
+            if(binding.amountEditText.text.isNullOrBlank() == false){
+                var selectedIngredient = ingredientSpinner.selectedItem.toString()
+                //changing the value of addedIngredient depending on the ingredient selected on ingredientSpinner
+                when(selectedIngredient){
+                    "Large Egg" -> addedIngredient = loadIngredientList()[0]
+                    "Whole Wheat Bread" -> addedIngredient = loadIngredientList()[1]
+                    "Cooked Broccoli" -> addedIngredient = loadIngredientList()[2]
+                    "Chicken Breast" -> addedIngredient = loadIngredientList()[3]
+                    "Apple" -> addedIngredient = loadIngredientList()[4]
+                    "Fasting" -> addedIngredient = loadIngredientList()[5]
+                    "Oatmeal" -> addedIngredient = loadIngredientList()[6]
+                    "Raw Spinach" -> addedIngredient = loadIngredientList()[7]
+                    "Sweet Potato" -> addedIngredient = loadIngredientList()[8]
+                    "White Rice" -> addedIngredient = loadIngredientList()[9]
+                    "Brown Rice" -> addedIngredient = loadIngredientList()[10]
+                    "Lentils" -> addedIngredient = loadIngredientList()[11]
+                }
 
+                //changing the image depending on the ingredient selected on ingredientSpinner
+                var ingredientDrawable = when(selectedIngredient){
+                    "Large Egg" -> R.drawable.egg
+                    "Whole Wheat Bread" -> R.drawable.bread
+                    "Cooked Broccoli" -> R.drawable.broccoli
+                    "Chicken Breast" -> R.drawable.chicken
+                    "Apple" -> R.drawable.apple
+                    "Fasting" -> R.drawable.fasting
+                    "Oatmeal" -> R.drawable.oatmeal
+                    "Raw Spinach" -> R.drawable.spinach
+                    "Sweet Potato" -> R.drawable.sweet_potato
+                    "White Rice" -> R.drawable.white_rice
+                    "Brown Rice" -> R.drawable.brown_rice
+                    else -> R.drawable.lentils
+                }
+                ingredientImage.setImageResource(ingredientDrawable)
 
-            addedIngredient.amount = binding.amountEditText.text.toString().toDouble()
-            ingredientList.add(addedIngredient)
-            Toast.makeText(applicationContext, "${addedIngredient.amount} grams of ${addedIngredient.name} added", Toast.LENGTH_SHORT).show()
+                //changing the amount parameter of the addedIngredient object depening on what
+                addedIngredient.amount = binding.amountEditText.text.toString().toDouble()
+                ingredientList.add(addedIngredient)
+                Toast.makeText(applicationContext, "${addedIngredient.amount} grams of ${addedIngredient.name} added", Toast.LENGTH_SHORT).show()
+
+            } else {
+                //bringing up toast msg if amount of ingredients arent written by user
+                Toast.makeText(applicationContext, "fill out all fields!", Toast.LENGTH_SHORT).show()
+
+            }
+
 
         }
 
+        //runs when clearRecipeButton is clicked
         binding.clearRecipeButton.setOnClickListener{
+            //clearing ingredientList, and amountEditText field
             ingredientList = mutableListOf<Ingredient>()
             binding.amountEditText.text = null
             Toast.makeText(applicationContext, "Recipe Cleared!", Toast.LENGTH_SHORT).show()
 
         }
 
+        //runs when finishRecipeButton is clocked
         binding.finishRecipeButton.setOnClickListener{
-            var finishedRecipe = Recipe(ingredientList, binding.recipeNameEditText.text.toString())
-            dataReference.child(finishedRecipe.name).push().setValue(finishedRecipe)
-            addedIngredient = loadIngredientList()[0]
-            binding.amountEditText.text = null
-            binding.recipeNameEditText.text = null
-            Toast.makeText(applicationContext, "Recipe: ${binding.recipeNameEditText.toString()} Saved!", Toast.LENGTH_SHORT).show()
+            //making it only run when all fields are filled out
+            if(binding.amountEditText.text.isNullOrBlank() == false && binding.recipeNameEditText.text.isNullOrBlank() == false){
+                //making the recipe object based on the selccted ingredients
+                var finishedRecipe = Recipe(ingredientList, binding.recipeNameEditText.text.toString())
+                //pushing the finished recipe to the databse under the recipe branch, making a node with the name of the recipe and child branches with the parameters of the recipe object
+                dataReference.child(finishedRecipe.name).push().setValue(finishedRecipe)
+                //reseting/clearing textfields and variables
+                addedIngredient = loadIngredientList()[0]
+                binding.amountEditText.text = null
+                binding.recipeNameEditText.text = null
+                Toast.makeText(applicationContext, "Recipe: ${binding.recipeNameEditText.toString()} Saved!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(applicationContext, "fill out all fields!", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
     }
 
+    /**
+     * Returns the list of ingredients in the app
+     *
+     * @returns will return the list of ingredients as a list of ingredient
+     */
     fun loadIngredientList(): List<Ingredient>{
         return listOf<Ingredient>(
             Ingredient("Large Egg", 1.6, 5.2, 0.0, 0.01, 0.5, 0.4),

@@ -7,9 +7,23 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.diethealth.databinding.ActivityFoodPlanBinding
 
+/**
+ * This class runs the foodplan activity on creation
+ *
+ * @author Joshua Hill
+ * @author Owen Pan
+ *
+ *
+ *
+ */
 class FoodPlan : AppCompatActivity() {
     private lateinit var binding: ActivityFoodPlanBinding
 
+    /**
+     * Runs on activity creation
+     *
+     * @param savedInstanceState - if there was a previous version of the activity saved, it can run it form that point
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFoodPlanBinding.inflate(layoutInflater)
@@ -17,6 +31,7 @@ class FoodPlan : AppCompatActivity() {
 
         //backwards action bar
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+
         //get intent information from Calendar
         val intent =getIntent()
         val year = intent.getStringExtra("year")
@@ -27,7 +42,7 @@ class FoodPlan : AppCompatActivity() {
 
         var spinnerBreakfast = binding.spinnerBreakfast
         spinnerBreakfast.adapter = recipeAdapter
-        //making it default empty, since loadRecipes()[6] is fasting, thus to intiilize this variable and keep it empty i set the initial value to the empty fast recipe
+        //making it default empty, since loadRecipes()[6] is fasting, thus to intiilize this variable and keep it empty i set the initial value to the empty fast recipe, which is done for the other addedRecipeValues as well
         var addedBreakfastRecipe = loadRecipes()[6]
 
         var spinnerSnackOne = binding.spinnerSnackOne
@@ -48,6 +63,7 @@ class FoodPlan : AppCompatActivity() {
 
 
 
+        //determining the month & day depending on the intent variable
         val month = when(intent.getStringExtra("month")){
             "0" -> "January"
             "1" -> "February"
@@ -67,8 +83,9 @@ class FoodPlan : AppCompatActivity() {
 
         binding.foodPlanDate.setText("$month $day, $year")
 
+        //runs when addBreakfast button is hit
         binding.addBreakfast.setOnClickListener {
-
+            //determining which recipe user wants to add depending on which recipe they chose on the breakfast spinner
             var selectedBreakfastRecipe = spinnerBreakfast.selectedItem.toString()
             addedBreakfastRecipe = when(selectedBreakfastRecipe){
                 "Chicken Fried Rice" -> loadRecipes()[0]
@@ -82,8 +99,10 @@ class FoodPlan : AppCompatActivity() {
 
             Toast.makeText(applicationContext,"Breakfast added",Toast.LENGTH_SHORT).show()
         }
+        //runs when addSnack button is hit
         binding.addSnack.setOnClickListener {
 
+            //determining which recipe user wants to add depending on which recipe they chose on the snack one spinner
             var selectedSnackOneRecipe = spinnerSnackOne.selectedItem.toString()
             addedSnackOneRecipe = when(selectedSnackOneRecipe){
                 "Chicken Fried Rice" -> loadRecipes()[0]
@@ -97,8 +116,10 @@ class FoodPlan : AppCompatActivity() {
 
             Toast.makeText(applicationContext,"Snack added",Toast.LENGTH_SHORT).show()
         }
+        //runs when addLunch button is hit
         binding.addLunch.setOnClickListener {
 
+            //determining which recipe user wants to add depending on which recipe they chose on the lunch spinner
             var selectedLunchRecipe = spinnerLunch.selectedItem.toString()
             addedLunchRecipe = when(selectedLunchRecipe){
                 "Chicken Fried Rice" -> loadRecipes()[0]
@@ -112,8 +133,10 @@ class FoodPlan : AppCompatActivity() {
 
             Toast.makeText(applicationContext,"Lunch added",Toast.LENGTH_SHORT).show()
         }
+        //runs when addSNackTwo button is hit
         binding.addSnackTwo.setOnClickListener {
 
+            //determining which recipe user wants to add depending on which recipe they chose on the snack two spinner
             var selectedSnackTwoRecipe = spinnerSnackTwo.selectedItem.toString()
             addedSnackTwoRecipe = when(selectedSnackTwoRecipe){
                 "Chicken Fried Rice" -> loadRecipes()[0]
@@ -127,8 +150,10 @@ class FoodPlan : AppCompatActivity() {
 
             Toast.makeText(applicationContext,"Snack added",Toast.LENGTH_SHORT).show()
         }
+        //runs when addDinner button is hit
         binding.addDinner.setOnClickListener {
 
+            //determining which recipe user wants to add depending on which recipe they chose on the dinner spinner
             var selectedDinnerRecipe = spinnerDinner.selectedItem.toString()
             addedDinnerRecipe = when(selectedDinnerRecipe){
                 "Chicken Fried Rice" -> loadRecipes()[0]
@@ -143,7 +168,9 @@ class FoodPlan : AppCompatActivity() {
             Toast.makeText(applicationContext,"Dinner added",Toast.LENGTH_SHORT).show()
         }
 
+        //runs when the calculateButton is hit
         binding.calculateButton.setOnClickListener{
+            //determining the toal daily nutritional info depeniiing on which recipes the user chose
             var dailyCalories: Double = addedBreakfastRecipe.getCalories() + addedSnackOneRecipe.getCalories() + addedLunchRecipe.getCalories() + addedSnackTwoRecipe.getCalories() + addedDinnerRecipe.getCalories()
             var dailyVitaminA: Double = addedBreakfastRecipe.getVitaminA() + addedSnackOneRecipe.getVitaminA() + addedLunchRecipe.getVitaminA() + addedSnackTwoRecipe.getVitaminA() + addedDinnerRecipe.getVitaminA()
             var dailyVitaminC: Double = addedBreakfastRecipe.getVitaminC() + addedSnackOneRecipe.getVitaminC() + addedLunchRecipe.getVitaminC() + addedSnackTwoRecipe.getVitaminC() + addedDinnerRecipe.getVitaminC()
@@ -151,6 +178,7 @@ class FoodPlan : AppCompatActivity() {
             var dailyCalcium: Double = addedBreakfastRecipe.getCalcium() + addedSnackOneRecipe.getCalcium() + addedLunchRecipe.getCalcium() + addedSnackTwoRecipe.getCalcium() + addedDinnerRecipe.getCalcium()
             var dailyFolate: Double = addedBreakfastRecipe.getFolate() + addedSnackOneRecipe.getFolate() + addedLunchRecipe.getFolate() + addedSnackTwoRecipe.getFolate() + addedDinnerRecipe.getFolate()
 
+            //formatting the information to be used in a textview
             var dailyCaloriesString = dailyCalories.toString() + " kcal"
             binding.dailyCalories.text = dailyCaloriesString
 
