@@ -14,7 +14,7 @@ package com.example.diethealth
  * @property folateRate - this is the amount of folate per gram of the ingredient
  * @property amount - this is the amount of grams of the ingredient
  *
- *
+ * Updated 01-12-2022
  */
 class Ingredient(name: String, calorieRate: Double, vitaminARate: Double, vitaminCRate: Double, zincRate: Double, calciumRate: Double, folateRate: Double, amount: Double = 1.0) {
 

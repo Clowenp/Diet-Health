@@ -8,6 +8,7 @@ package com.example.diethealth
  * @property ingredients - This is the list of the ingredients in the recipe
  * @property name - this is the name of the recipe
  *
+ * Updated 01-12-2022
  */
 class Recipe(ingredients : List<Ingredient>, name : String = "Recipe") {
     val ingredients: List<Ingredient>

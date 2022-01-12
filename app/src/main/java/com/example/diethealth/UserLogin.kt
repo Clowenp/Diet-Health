@@ -11,6 +11,7 @@ package com.example.diethealth
  * @property name - this is the name of the user
  * @property email - this is the email of the user
  *
+ * Updated 01-12-2022
  */
 class UserLogin(username: String, password: String, name: String, email: String) {
     val username: String

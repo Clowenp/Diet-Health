@@ -20,7 +20,7 @@ import com.google.firebase.ktx.Firebase
  * @author Joshua Hill
  *
  *
- *
+ * Updated 01-12-2022
  */
 class Recipes : AppCompatActivity() {
     private lateinit var binding: ActivityRecipesBinding

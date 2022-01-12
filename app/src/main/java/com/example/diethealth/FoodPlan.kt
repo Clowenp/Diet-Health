@@ -10,11 +10,11 @@ import com.example.diethealth.databinding.ActivityFoodPlanBinding
 /**
  * This class runs the foodplan activity on creation
  *
- * @author Joshua Hill
  * @author Owen Pan
+ * @author Joshua Hill
  *
  *
- *
+ * Updated 01-12-2022
  */
 class FoodPlan : AppCompatActivity() {
     private lateinit var binding: ActivityFoodPlanBinding
