@@ -6,6 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".FoodPlan">
 
+    <Spinner
+        android:id="@+id/spinner_dinner"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addDinner"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_snack_two" />
+
+    <Spinner
+        android:id="@+id/spinner_snack_two"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addSnackTwo"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_lunch" />
+
+    <Spinner
+        android:id="@+id/spinner_lunch"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addLunch"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_snack_one" />
+
+    <Spinner
+        android:id="@+id/spinner_snack_one"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="34dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addSnack"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_breakfast" />
+
     <FrameLayout
         android:id="@+id/frameLayout2"
         android:layout_width="0dp"
@@ -184,5 +220,14 @@
         app:layout_constraintEnd_toStartOf="@+id/addDinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/snackTestTwo" />
+
+    <Spinner
+        android:id="@+id/spinner_breakfast"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/addBreakfast"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

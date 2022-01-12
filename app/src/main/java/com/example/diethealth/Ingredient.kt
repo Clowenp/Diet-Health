@@ -1,6 +1,6 @@
 package com.example.diethealth
 ////vitamin a, vitamin c, zinc, calcium, pholate
-class Ingredient(name: String, calorieRate: Double, vitaminARate: Double, vitaminCRate: Double, zincRate: Double, calciumRate: Double, pholateRate: Double, amount: Double = 1.0) {
+class Ingredient(name: String, calorieRate: Double, vitaminARate: Double, vitaminCRate: Double, zincRate: Double, calciumRate: Double, folateRate: Double, amount: Double = 1.0) {
 
     val name: String
     val calorieRate: Double
@@ -8,7 +8,7 @@ class Ingredient(name: String, calorieRate: Double, vitaminARate: Double, vitami
     val vitaminCRate: Double
     val zincRate: Double
     val calciumRate: Double
-    val pholateRate: Double
+    val folateRate: Double
     var amount: Double
 
     init{
@@ -18,7 +18,7 @@ class Ingredient(name: String, calorieRate: Double, vitaminARate: Double, vitami
         this.vitaminCRate = vitaminCRate
         this.zincRate = zincRate
         this.calciumRate = calciumRate
-        this.pholateRate = pholateRate
+        this.folateRate = folateRate
         this.amount = amount
     }
 
@@ -42,7 +42,7 @@ class Ingredient(name: String, calorieRate: Double, vitaminARate: Double, vitami
         return amount*calciumRate
     }
 
-    fun pholate(): Double{
-        return amount*pholateRate
+    fun folate(): Double{
+        return amount*folateRate
     }
 }

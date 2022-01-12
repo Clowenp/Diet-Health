@@ -32,4 +32,12 @@
         <item>Brown Rice</item>
         <item>Lentils</item>
     </string-array>
+    <string-array name="recipe_array">
+        <item>Chicken Fried Rice</item>
+        <item>Egg Fried Rice</item>
+        <item>Broccoli and Sweet Potato</item>
+        <item>Apple Oatmeal</item>
+        <item>Lentil Salad</item>
+        <item>Chicken Sandwich</item>
+    </string-array>
 </resources>

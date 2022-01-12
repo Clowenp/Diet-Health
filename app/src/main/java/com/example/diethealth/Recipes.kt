@@ -58,6 +58,7 @@ class Recipes : AppCompatActivity() {
         val ingredientArray = resources.getStringArray(R.array.ingredient_array)
         var ingredientAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ingredientArray)
         ingredientSpinner.adapter = ingredientAdapter
+
         //
         var addedIngredient : Ingredient = loadIngredientList()[0]
         var ingredientList = mutableListOf<Ingredient>()
