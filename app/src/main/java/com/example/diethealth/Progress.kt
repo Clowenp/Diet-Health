@@ -4,16 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import com.example.diethealth.databinding.ActivityMainBinding
 import com.example.diethealth.databinding.ActivityProgressBinding
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class Progress : AppCompatActivity() {
     private lateinit var binding: ActivityProgressBinding
-    private lateinit var databaseReference: DatabaseReference
-    private lateinit var recipeRecyclerView: DatabaseReference
-    private lateinit var recipeList: ArrayList<Recipe>
+    private lateinit var database : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +44,14 @@ class Progress : AppCompatActivity() {
         navigationBarProgress.setOnClickListener{
             val intent = Intent(this, Progress::class.java)
             startActivity(intent)
+        }
+
+        binding.readButton.setOnClickListener {
+            database = FirebaseDatabase.getInstance().getReference("recipes")
+            //binding.readView.text = database.ref.toString()
+            database.child("recipes").child("hhh").child("-Mt8o1CqrwFGoV9eSVHv").child("name:").get().addOnSuccessListener {
+                binding.readView.text = it.toString()
+            }
         }
 
     }

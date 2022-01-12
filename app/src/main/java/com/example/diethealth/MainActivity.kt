@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
                 binding.testTextview.text = user.gender.toString()
                 //adding user to database
                 //dataReference.child(user.name).push().setValue(user)
-                database.child("test").child(user.name).setValue(user)
+                database.child("test").setValue(user)
             } else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
