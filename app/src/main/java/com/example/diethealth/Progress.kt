@@ -27,6 +27,7 @@ class Progress : AppCompatActivity() {
     lateinit var recipeArrayList : ArrayList<RecyclerRecipe>
     lateinit var imageId : Array<Int>
     lateinit var title : Array<String>
+    lateinit var description : Array<String>
 
 
 
@@ -62,7 +63,8 @@ class Progress : AppCompatActivity() {
         }
 
        imageId = arrayOf(R.drawable.a, R.drawable.b, R.drawable.c, R.drawable.d, R.drawable.e, R.drawable.f)
-       title = arrayOf("Chicken and White Rice", "Eggs and Brown Rice", "Brocoli and Sweet Potato", "Apple and Oatmeal", "Lentil and Spinach", "Chicken Sandwich")
+       title = arrayOf("Chicken Fried Rice", "Egg Fried Rice", "Broccoli and Sweet Potato", "Apple Oatmeal", "Lentil Salad", "Chicken Sandwich")
+        description = arrayOf("100g of Chicken Breast with 300g of White Rice. 560 kcal, 30 IU Vit. A, 0 mg Vit. C, 4 g Zinc, 50 mg Calcium, 133 mcg Folate", "100g of Egg with 300g of Brown Rice. 529 kcal, 520 IU Vit. A, 0 mg Vit. C, 4 mg of Zinc, 50 mg Calcium, 43 mcg Folate", "200g of Sweet Potato with 400g of Broccoli. 320 kcal, 44636 IU Vit. A, 280 mg Vit C, 0 mg Zinc, 236 mg Calcium, 442 mcg Folate", "100g of Apple with 200g of Oatmeal. 810 kcal, 54 IU Vit. A, 5 mg Vit. C, 8 mg Zinc, 110 mg Calcium, 5 mcg Folate", "100g of Lentils with 300g of Spinach. 185 kcal, 28139 IU Vit. A, 85 mg Vit. C, 4mg Zinc, 316 mg Calcium, 763 mcg Folate", "200g of Chicken Breast with 100g of Whole Wheat Bread. 590 kcal, 62 IU Vit. A, 0 mg Vit. C, 3 mg Zinc, 200 mg Calcium, 48 mcg Folate")
 
         recipeRecyclerView = findViewById(R.id.recycler_view)
         recipeRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -143,7 +145,7 @@ class Progress : AppCompatActivity() {
 
      fun getUserData() {
          for(i in imageId.indices){
-             val recipe = RecyclerRecipe(imageId[i], title[i])
+             val recipe = RecyclerRecipe(imageId[i], title[i], description[i])
              recipeArrayList.add(recipe)
          }
          recipeRecyclerView.adapter = RecipeAdapter(recipeArrayList)
