@@ -9,20 +9,37 @@ import com.example.diethealth.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import java.time.Year
 
+/**
+ * This class runs the Calendars activity on creation. shows the calendar and each day of the year,
+ * allowing users to navigate to a certain day and add their daily food plans
+ *
+ * @author Owen Pan
+ * @author Joshua Hill
+ * @author Jaidon Hill
+ *
+ *
+ * Updated 01-12-2022
+ */
 class Calendars : AppCompatActivity() {
+
     private lateinit var binding: ActivityCalendarsBinding
 
+    //Map Variable that matches CalendarInfo objects to check if calendar info was created for that
+    //day (was to be stored in database to allow for the reopening of olde rplans
     var map = mutableMapOf("2004/3/17" to CalendarInfo("2004","3","17") )
 
+    /**
+     * Runs on activity creation
+     *
+     * @param savedInstanceState - if there was a previous version of the activity saved, it can run it form that point
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCalendarsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*
-        Somehow save the map information on some file and initialize it every time
-         */
-
+       //Calendar view displayed on calendar page, creates calendarInfo object if first time
+        //accessing that day
         binding.calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
 
             var date = "$year/$month/$dayOfMonth"
@@ -72,24 +89,4 @@ class Calendars : AppCompatActivity() {
         }
 
     }
-}
-
-
-class MapInfo(){
-    var map: MutableMap<String,CalendarInfo>
-
-    init{
-        this.map = mutableMapOf("2004317" to CalendarInfo("2004","3","17"))
-    }
-
-    fun addDate (year: Int, month: Int, day: Int){
-        val date = "$year/$month/$day"
-        map.put(date,CalendarInfo(year.toString(),month.toString(), day.toString()))
-    }
-
-    fun findDate (year: Int, month:Int, day:Int): Boolean{
-        val date = "$year/$month/$day"
-        return map[date]==null
-    }
-
 }

@@ -23,8 +23,6 @@ class RecipeAdapter(val recipeList : ArrayList<RecyclerRecipe>) : RecyclerView.A
 
 
 
-
-
     /**
      * Helps to create ViewHolder
      *

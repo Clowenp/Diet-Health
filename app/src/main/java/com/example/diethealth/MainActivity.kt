@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         binding.date.text = currentDate
 
         binding.greyBackground.isInvisible = true
+
 //        val myRef = Firebase.database.reference
 
 //        binding.button.setOnClickListener {
@@ -89,7 +90,8 @@ class MainActivity : AppCompatActivity() {
 //            databaseTwo.addListenerForSingleValueEvent(getdata)
 //        }
 
-        // navigation bar on main page
+        // navigation bar on main page - creates an intent object which allows us to switch into
+        // the new class when object is inputted
         val navigationBarHome = findViewById<BottomNavigationItemView>(R.id.home_navigation)
         navigationBarHome.performClick()
         navigationBarHome.setOnClickListener{
@@ -138,9 +140,9 @@ class MainActivity : AppCompatActivity() {
 
         val isChecked = binding.switch1.isChecked
         if(isChecked){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            //Make information private for others when recipe is created
         }else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            //Make information public for others when recipe is created
         }
 
 
@@ -216,4 +218,3 @@ class MainActivity : AppCompatActivity() {
 
 
 }
-//eee

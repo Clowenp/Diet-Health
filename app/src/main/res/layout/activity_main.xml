@@ -345,7 +345,7 @@
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Night Mode"
+        android:text="Private"
         android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/greyBackground"
         app:layout_constraintEnd_toEndOf="parent" />
