@@ -14,7 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu"/>
+        app:menu="@menu/bottom_nav_menu" />
 
     <Spinner
         android:id="@+id/ingredient_spinner"
@@ -31,51 +31,63 @@
         android:id="@+id/amount_edit_text"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
         android:layout_marginBottom="250dp"
         android:hint="Enter Amount (g)"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/recipe_name_edit_text"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="250dp"
         android:hint="Enter Recipe Name"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/finish_recipe_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/add_ingredient_button"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="50dp"
         android:text="Add to Recipe"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amount_edit_text" />
 
     <Button
         android:id="@+id/finish_recipe_button"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:text="Finish Recipe"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/clear_recipe_button"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="25dp"
         android:text="Clear Recipe"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recipe_name_edit_text" />
+
+    <ImageView
+        android:id="@+id/ingredient_image_view"
+        android:layout_width="189dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="75dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_ingredient_button" />
+        app:layout_constraintTop_toBottomOf="@+id/ingredient_spinner"
+        app:srcCompat="@drawable/ic_baseline_calculate_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

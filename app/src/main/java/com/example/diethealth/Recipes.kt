@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import com.example.diethealth.databinding.ActivityMainBinding
 import com.example.diethealth.databinding.ActivityRecipesBinding
@@ -48,7 +49,7 @@ class Recipes : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        //databse variables
         var database = FirebaseDatabase.getInstance()
         var dataReference = database.getReference("recipes")
 
@@ -57,13 +58,14 @@ class Recipes : AppCompatActivity() {
         val ingredientArray = resources.getStringArray(R.array.ingredient_array)
         var ingredientAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, ingredientArray)
         ingredientSpinner.adapter = ingredientAdapter
-        //creating the objects of the ingredient options
-
-        //testing out making recipe
-        //show recyclerview of ingredients, then give person ability to choose amount, then they click button to add it to recipe, then they have another button to save recipe?
+        //
         var addedIngredient : Ingredient = loadIngredientList()[0]
         var ingredientList = mutableListOf<Ingredient>()
         var recipeList = mutableListOf<Recipe>()
+
+        //image variables
+        val ingredientImage : ImageView = binding.ingredientImageView
+
 
 
         binding.addIngredientButton.setOnClickListener{
@@ -82,6 +84,21 @@ class Recipes : AppCompatActivity() {
                 "Brown Rice" -> addedIngredient = loadIngredientList()[10]
                 "Lentils" -> addedIngredient = loadIngredientList()[11]
             }
+            var ingredientDrawable = when(selectedIngredient){
+                "Large Egg" -> R.drawable.egg
+                "Whole Wheat Bread" -> R.drawable.egg
+                "Cooked Broccoli" -> R.drawable.egg
+                "Chicken Breast" -> R.drawable.egg
+                "Apple" -> R.drawable.egg
+                "Fasting" -> R.drawable.egg
+                "Oatmeal" -> R.drawable.egg
+                "Raw Spinach" -> R.drawable.egg
+                "Sweet Potato" -> R.drawable.egg
+                "White Rice" -> R.drawable.egg
+                "Brown Rice" -> R.drawable.egg
+                else -> R.drawable.egg
+            }
+
             addedIngredient.amount = binding.amountEditText.text.toString().toDouble()
             ingredientList.add(addedIngredient)
             Toast.makeText(applicationContext, "${addedIngredient.amount} grams of ${addedIngredient.name} added", Toast.LENGTH_SHORT).show()
