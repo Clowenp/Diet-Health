@@ -16,8 +16,10 @@
         <entry key="..\:/Users/jaido/AndroidStudioProjects/Diet-Health/app/src/main/res/layout/activity_calendar.xml" value="0.17346014492753623" />
         <entry key="..\:/Users/jaido/AndroidStudioProjects/Diet-Health/app/src/main/res/layout/activity_food_plan.xml" value="0.17346014492753623" />
         <entry key="..\:/Users/jaido/AndroidStudioProjects/Diet-Health/app/src/main/res/layout/activity_main.xml" value="0.16510416666666666" />
-        <entry key="..\:/Users/jaido/AndroidStudioProjects/Diet-Health/app/src/main/res/layout/activity_progress.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/jaido/AndroidStudioProjects/Diet-Health/app/src/main/res/layout/activity_progress.xml" value="0.176" />
         <entry key="..\:/Users/jaido/AndroidStudioProjects/Diet-Health/app/src/main/res/layout/activity_recipes.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/jaido/AndroidStudioProjects/Diet-Health/app/src/main/res/layout/card_layout.xml" value="0.2" />
+        <entry key="..\:/Users/jaido/AndroidStudioProjects/Diet-Health/app/src/main/res/layout/list_item.xml" value="0.1" />
       </map>
     </option>
   </component>

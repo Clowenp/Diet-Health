@@ -1,6 +1,6 @@
 package com.example.diethealth
 
-class Recipe(ingredients: List<Ingredient>, name: String = "Recipe") {
+class Recipe(ingredients : List<Ingredient>, name : String = "Recipe") {
     val ingredients: List<Ingredient>
     val name: String
 
