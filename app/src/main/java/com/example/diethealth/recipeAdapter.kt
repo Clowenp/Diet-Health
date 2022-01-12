@@ -28,6 +28,7 @@ class RecipeAdapter(val recipeList : ArrayList<RecyclerRecipe>) : RecyclerView.A
         val currentItem = recipeList[position]
         holder.recipeImage.setImageResource(currentItem.recipeImage)
         holder.recipeTitle.text = currentItem.recipeTitle
+        holder.recipeDescription.text = currentItem.recipeDescription
 
     }
 
@@ -39,7 +40,7 @@ class RecipeAdapter(val recipeList : ArrayList<RecyclerRecipe>) : RecyclerView.A
 
         val recipeImage : ShapeableImageView = itemView.findViewById(R.id.recipe_image)
         val recipeTitle : TextView = itemView.findViewById(R.id.recipeTitle)
-        val recipeButton : Button = itemView.findViewById(R.id.click_button)
+        val recipeDescription : TextView = itemView.findViewById(R.id.recipe_description)
 
     }
 }

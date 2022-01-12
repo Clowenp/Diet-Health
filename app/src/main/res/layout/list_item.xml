@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/recipeTitle"
         android:text="Recipe"
-        android:textColor="@color/blue"
+        android:textColor="@color/green_dark"
         android:textSize="16dp"
         android:textStyle="bold"
         android:layout_marginStart="16dp"
@@ -32,16 +32,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/recipe_image"
         app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
-        android:layout_width="100dp"
+    <TextView
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/click_button"
-        android:text="Click"
-        android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/recipe_description"
+        android:text="Description"
+        android:textColor="@color/black"
+        android:textSize="10dp"
+        android:textStyle="normal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@id/recipe_image"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/recipeTitle"/>
+
+
 
     <View
         android:layout_width="match_parent"
