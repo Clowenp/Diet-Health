@@ -4,19 +4,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import com.example.diethealth.databinding.ActivityCalendarBinding
+import com.example.diethealth.databinding.ActivityCalendarsBinding
 import com.example.diethealth.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import java.time.Year
 
-class Calendar : AppCompatActivity() {
-    private lateinit var binding: ActivityCalendarBinding
+class Calendars : AppCompatActivity() {
+    private lateinit var binding: ActivityCalendarsBinding
 
     var map = mutableMapOf("2004/3/17" to CalendarInfo("2004","3","17") )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCalendarBinding.inflate(layoutInflater)
+        binding = ActivityCalendarsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         /*
@@ -55,7 +55,7 @@ class Calendar : AppCompatActivity() {
         val navigationBarCalendar = findViewById<BottomNavigationItemView>(R.id.calendar_navigation)
         navigationBarCalendar.performClick()
         navigationBarCalendar.setOnClickListener{
-            val intent = Intent(this, Calendar::class.java)
+            val intent = Intent(this, Calendars::class.java)
             startActivity(intent)
         }
         val navigationBarRecipes = findViewById<BottomNavigationItemView>(R.id.recipes_navigation)

@@ -32,7 +32,7 @@ class Recipes : AppCompatActivity() {
 
         val navigationBarCalendar = findViewById<BottomNavigationItemView>(R.id.calendar_navigation)
         navigationBarCalendar.setOnClickListener{
-            val intent = Intent(this, Calendar::class.java)
+            val intent = Intent(this, Calendars::class.java)
             overridePendingTransition(0,0)
             startActivity(intent)
         }

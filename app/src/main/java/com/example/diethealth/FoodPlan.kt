@@ -4,7 +4,6 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.diethealth.databinding.ActivityCalendarBinding
 import com.example.diethealth.databinding.ActivityFoodPlanBinding
 
 class FoodPlan : AppCompatActivity() {
