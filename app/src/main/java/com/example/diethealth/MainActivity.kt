@@ -18,13 +18,26 @@ import java.util.Calendar
 import java.text.DateFormat
 import kotlin.math.roundToInt
 
+/**
+ * Class that runs main activity
+ *
+ * @author Jaidon & Joshua & Owen
+ *
+ * Updated 12-Jan-2022
+ */
 class MainActivity : AppCompatActivity() {
 
+    // allows to use binding. instead of using searchById for View
     private lateinit var binding: ActivityMainBinding
 //    private lateinit var database: DatabaseReference
 
 //    private lateinit var ref: DatabaseReference
 
+    /**
+     * When activity is first opened, it runs
+     *
+     * @param savedInstanceState If there was a previous time where there was data in the activity that it can revert to
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -109,13 +122,17 @@ class MainActivity : AppCompatActivity() {
         //var dataReference = database.getReference("userInfo")
 
         var user = User()
+        // gets gender options from a string file
         val genders = resources.getStringArray(R.array.gender_array)
         var genderSpinner = binding.genderSpinner
+        // allows to insert strings into gender spinner(dropdown list)
         var genderAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, genders)
         genderSpinner.adapter = genderAdapter
 
+        // gets activity level options from a string file
         val activityLevels = resources.getStringArray(R.array.activity_array)
         var activitySpinner = binding.activitySpinner
+        // allows to use strings in the spinner
         var activityAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, activityLevels)
         activitySpinner.adapter = activityAdapter
 
@@ -127,6 +144,7 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        // when the submit button is clicked
         binding.submitButton.setOnClickListener{
             if (binding.ageEdittext.text.isNullOrBlank() == false && binding.nameEdittext.text.isNullOrBlank() == false && binding.weightEdittext.text.isNullOrBlank() == false && binding.heightEdittext.text.isNullOrBlank() == false) {
                 user.age = binding.ageEdittext.text.toString().toDouble()
@@ -196,12 +214,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-    }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-    }
 }
 //eee

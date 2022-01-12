@@ -19,10 +19,16 @@ import java.io.FileInputStream
 import java.io.InputStream
 
 
-
+/**
+ * Class that runs the progress activity
+ *
+ * @author Jaidon & Joshua & Owen
+ *
+ * Updated 12-Jan-2022
+ */
 class Progress : AppCompatActivity() {
     lateinit var binding: ActivityProgressBinding
-    lateinit var database: DatabaseReference
+    //lateinit var database: DatabaseReference
     lateinit var recipeRecyclerView : RecyclerView
     lateinit var recipeArrayList : ArrayList<RecyclerRecipe>
     lateinit var imageId : Array<Int>
@@ -31,6 +37,11 @@ class Progress : AppCompatActivity() {
 
 
 
+    /**
+     * When activity is first opened, it runs
+     *
+     * @param savedInstanceState If there was a previous time where there was data in the activity that it can revert to
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProgressBinding.inflate(layoutInflater)
@@ -70,7 +81,7 @@ class Progress : AppCompatActivity() {
         recipeRecyclerView.layoutManager = LinearLayoutManager(this)
         recipeRecyclerView.setHasFixedSize(true)
         recipeArrayList = arrayListOf<RecyclerRecipe>()
-        getUserData()
+        recipeRecycler()
 
 
 
@@ -143,7 +154,11 @@ class Progress : AppCompatActivity() {
 
     }
 
-     fun getUserData() {
+    /**
+     * Constructs the recyclerview
+     *
+     */
+     fun recipeRecycler() {
          for(i in imageId.indices){
              val recipe = RecyclerRecipe(imageId[i], title[i], description[i])
              recipeArrayList.add(recipe)
