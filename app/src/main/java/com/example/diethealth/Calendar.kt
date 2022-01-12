@@ -44,7 +44,7 @@ class Calendar : AppCompatActivity() {
             }
 
         }
-        
+
 // navigation bar on calendar page
         val navigationBarHome = findViewById<BottomNavigationItemView>(R.id.home_navigation)
         navigationBarHome.setOnClickListener{

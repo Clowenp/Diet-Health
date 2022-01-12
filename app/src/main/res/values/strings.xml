@@ -6,6 +6,7 @@
     <string name="my_progress">my_progress</string>
     <string name="monday_january_10th">monday_january_10th</string>
     <string name="welcome_back_john">Welcome Back, John</string>
+    <string name="welcome_back">Welcome Back!</string>
     <string-array name="gender_array">
         <item>Male</item>
         <item>Female</item>
