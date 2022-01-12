@@ -159,7 +159,7 @@ class Recipes : AppCompatActivity() {
                 addedIngredient = loadIngredientList()[0]
                 binding.amountEditText.text = null
                 binding.recipeNameEditText.text = null
-                Toast.makeText(applicationContext, "Recipe: ${binding.recipeNameEditText.toString()} Saved!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Recipe Saved to Database!", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(applicationContext, "fill out all fields!", Toast.LENGTH_SHORT).show()
             }
